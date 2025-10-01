@@ -1,0 +1,73 @@
+/* Fontes e variáveis de cor */
+@import url('https://Fontes.googleapis.com/css2?family=poppins:wght@400;600&display=swap');
+
+:root{
+    --cor-fundo: aliceblue;   
+    --cor-container: #ffffff;
+    --cor-primaria: #007fbff;
+    --cor-texto-principal: #3333333;
+    --cor-texto-secundario: #6c757d;
+    --cor-borda: #dee2e6;
+    --fonte-principal: 'popins', sans-serif;
+}
+
+/* 2. Estilos Gerais*/
+
+body{
+    background-color: var(--cor-fundo);;
+    color: var(var(--cor-texto-principal));
+    font-family: var(--cor-texto-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /*impede que o conteudo do body ofete o canvas*/
+    overflow: hidden;
+}
+
+
+/*Estilo do canvas de fundo*/
+#backgroundCanvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100#;
+    /*Garante que o canvas fique atras de todo o conteudo */
+    z-index: -1;
+}
+
+/* 4. O container do formulario (desing classico) */
+.container{
+    width: 300px;
+    padding: 40px;
+    background-color: var(--cor-container);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), 0.1);
+    text-align: center;
+    border: 1px solid var(--cor-borda);
+}
+
+h1{
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.subtitulo{
+    color: var(--cor-texto-secundario);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* 5. Estilos dos campos do formulário */
+input, button{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 16px;
+    font-family: var(--fonte-principal);
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    transition: all 0.3s ease;
+}
