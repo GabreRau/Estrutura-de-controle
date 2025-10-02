@@ -3,40 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Verificar Idade + Partículas</title>
+<title>Verificador de Idade | Design Clássico</title>
 <style>
+    /* Reset básico */
     body, html {
         margin: 0;
         padding: 0;
         overflow: hidden;
         font-family: sans-serif;
+        background-color: #111;
     }
 
+    /* Canvas ocupa toda a tela */
     #background-canvas {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1; /* atrás do conteúdo */
+        z-index: -1;
         background-color: #111;
     }
 
+    /* Container centralizado sobre o canvas */
     #controle {
-        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         z-index: 10;
-        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 30px 40px;
+        border-radius: 10px;
         color: white;
+        text-align: center;
+    }
+
+    #controle h1 {
+        margin: 0 0 10px 0;
+        font-size: 28px;
+    }
+
+    #controle p.subtitulo {
+        margin: 0 0 20px 0;
+        font-size: 16px;
+        color: #ccc;
+    }
+
+    #controle input {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        width: 200px;
+        text-align: center;
+    }
+
+    #controle button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #controle button:hover {
+        background-color: #0056b3;
+    }
+
+    #resultado {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.3s;
     }
 
     #resultado.visivel {
         opacity: 1;
-        transition: opacity 0.3s;
-    }
-
-    #resultado {
-        opacity: 0;
-        margin-top: 10px;
     }
 </style>
 </head>
@@ -45,7 +97,9 @@
 <canvas id="background-canvas"></canvas>
 
 <div id="controle">
-    <input type="text" id="idadeInput" placeholder="Digite sua idade">
+    <h1>Verificador de Idade</h1>
+    <p class="subtitulo">Digite sua idade para continuar</p>
+    <input type="number" id="idadeInput" placeholder="Sua idade aqui...">
     <button id="verifyButton">Verificar</button>
     <div id="resultado"></div>
 </div>
